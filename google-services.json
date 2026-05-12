@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84542217864",
+    "project_id": "reminderlab8",
+    "storage_bucket": "reminderlab8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84542217864:android:05ec0adb0b9a7b089e893d",
+        "android_client_info": {
+          "package_name": "com.polianovska.lab8"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTZJi0Jxf6b-rR8IZffM77iAOlJUQxeLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
