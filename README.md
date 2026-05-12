@@ -1,50 +1,18 @@
-# Welcome to your Expo app 👋
+Розроблений застосунок — це мобільний помічник для планування справ із функцією автоматичних нагадувань. Головна мета програми полягає в тому, щоб користувач міг не просто занотувати задачу, а й гарантовано отримати сповіщення про неї у визначений час.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Програма працює наступним чином: користувач заповнює назву та опис завдання, а потім за допомогою зручного календаря обирає час нагадування. Після збереження дані передаються у хмарний сервіс OneSignal, який бере на себе відповідальність за доставку повідомлення. Завдяки інтеграції з Firebase Cloud Messaging, сповіщення приходить на смартфон навіть тоді, коли застосунок повністю закритий або телефон знаходиться у режимі очікування.
 
-## Get started
+Особливістю програми є розумне керування повідомленнями: якщо користувач видаляє задачу зі списку, застосунок миттєво відправляє запит на скасування запланованого сповіщення. Це дозволяє уникати неактуальних сигналів і робить користування інструментом легким та логічним. Інтерфейс виконаний у мінімалістичному стилі, що забезпечує швидкий доступ до всіх функцій без зайвих налаштувань.
+Запуск команди npx expo run:android, яка скомпілює код, встановить готовий застосунок на пристрій та запустить сервер Metro для відстеження змін у реальному часі, але відкриття можиливе лише на андроїді.
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Контрольні запитання
+● Що таке push-сповіщення і як воно працює?
+Push-сповіщення — це технологія миттєвої доставки повідомлень від сервера на пристрій користувача, яка працює через постійне з'єднання операційної системи смартфона з хмарним сервісом, дозволяючи отримувати інформацію навіть при закритому застосунку.
+● Яка роль Firebase Cloud Messaging у потоці надсилання
+повідомлень?
+Ключову роль у цьому процесі для Android відіграє сервіс Firebase Cloud Messaging, який виступає надійним посередником і безпосередньо відповідає за доставку повідомлення на конкретний девайс, керуючи чергами та оптимізуючи споживання енергії.
+● Як запланувати та скасувати сповіщення через OneSignal API?
+Для того, щоб запланувати сповіщення через OneSignal API, необхідно відправити POST-запит на сервер сервісу, вказавши в параметрах текст повідомлення та точний час відправки. Скасування запланованого сповіщення відбувається шляхом відправки DELETE-запиту, де вказується унікальний ідентифікатор повідомлення, який система повернула під час його створення
+● Як обробляти push-сповіщення коли застосунок відкрито
+(foreground)?
+у стані, коли застосунок відкрито , то для цього використовуються спеціальні слухачі подій у коді, які дозволяють програмі перехопити вхідний пуш і замість стандартного банера показати внутрішнє повідомлення або автоматично оновити дані на екрані.
